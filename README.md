@@ -1,6 +1,8 @@
 Sentence Boundary Detection (SBD)
 =================================
 
+This forked version of SBD refactors the original SBD into esm version targeting Browsers.
+
 Split text into sentences with a `vanilla` rule based approach (i.e working ~95% of the time).
 
 * Split a text based on period, question- and exclamation marks.
@@ -25,11 +27,11 @@ Use [npm](http://npmjs.org) or [yarn](https://yarnpkg.com/en/):
 ## How to
 
 ```javascript
-var tokenizer = require('sbd');
+import tokenizer from 'sbd';
 
-var optional_options = {};
-var text = "On Jan. 20, former Sen. Barack Obama became the 44th President of the U.S. Millions attended the Inauguration.";
-var sentences = tokenizer.sentences(text, optional_options);
+let optional_options = {};
+let text = "On Jan. 20, former Sen. Barack Obama became the 44th President of the U.S. Millions attended the Inauguration.";
+let sentences = tokenizer.sentences(text, optional_options);
 
 // [
 //  'On Jan. 20, former Sen. Barack Obama became the 44th President of the U.S.',
@@ -41,7 +43,7 @@ var sentences = tokenizer.sentences(text, optional_options);
 #### Optional options
 
 ```
-var options = {
+let options = {
     "newline_boundaries" : false,
     "html_boundaries"    : false,
     "sanitize"           : false,

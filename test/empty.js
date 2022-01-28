@@ -2,21 +2,21 @@
 /*global describe:true, it:true */
 "use strict";
 
-var assert = require('assert');
-var tokenizer = require('../lib/tokenizer');
+let assert = require('assert');
+let tokenizer = require('../lib/tokenizer');
 
 describe('Empty', function () {
 
   describe('string', function () {
-      var entry = "";
-      var sentences = tokenizer.sentences(entry);
+      let entry = "";
+      let sentences = tokenizer.sentences(entry);
 
       it('should not get a sentence', function () {
           assert.equal(sentences.length, 0);
       });
 
-      var entry = "            \n\n                 ";
-      var sentences = tokenizer.sentences(entry);
+      entry = "            \n\n                 ";
+      sentences = tokenizer.sentences(entry);
 
       it('should not get a sentence from whitespace', function () {
           assert.equal(sentences.length, 0);
@@ -25,7 +25,7 @@ describe('Empty', function () {
   });
 
   describe('undefined', function () {
-      var sentences = tokenizer.sentences();
+      let sentences = tokenizer.sentences();
 
       it('should not get a sentence', function () {
           assert.equal(sentences.length, 0);
@@ -33,15 +33,15 @@ describe('Empty', function () {
   });
 
   describe('non string', function () {
-      var entry = [];
-      var sentences = tokenizer.sentences(entry);
+      let entry = [];
+      let sentences = tokenizer.sentences(entry);
 
       it('should not get a sentence from array', function () {
           assert.equal(sentences.length, 0);
       });
 
-      var entry = {};
-      var sentences = tokenizer.sentences(entry);
+      entry = {};
+      sentences = tokenizer.sentences(entry);
 
       it('should not get a sentence from object', function () {
           assert.equal(sentences.length, 0);
@@ -49,8 +49,8 @@ describe('Empty', function () {
   });
 
   describe('symbols only', function () {
-      var entry = "^&%(*&";
-      var sentences = tokenizer.sentences(entry);
+      let entry = "^&%(*&";
+      let sentences = tokenizer.sentences(entry);
 
       it('should not single entry', function () {
           assert.equal(sentences.length, 1);
